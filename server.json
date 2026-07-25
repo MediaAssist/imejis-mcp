@@ -1,0 +1,13 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.imejis/imejis",
+  "description": "Generate on-brand images from your AI agent: design, edit, and render templates over MCP.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.imejis.io/agents",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.imejis.io/api/mcp"
+    }
+  ]
+}
