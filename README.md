@@ -1,5 +1,7 @@
 # Imejis MCP Server
 
+[![smithery badge](https://smithery.ai/badge/support-ftxl/imejis-mcp)](https://smithery.ai/servers/support-ftxl/imejis-mcp)
+
 Give your AI agent a design studio. The Imejis MCP server lets Claude, ChatGPT,
 Cursor, or any MCP client design and render **real, on-brand images** for you.
 
