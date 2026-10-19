@@ -35,18 +35,36 @@ Add the endpoint as a remote MCP server and authorize once over OAuth.
 
 Once connected, the agent discovers the full catalog, designs, and renders:
 
-- **Discover:** `get_design_guide`, `list_component_types` (all 24 components:
+- **Discover:** `get_design_guide`, `list_component_types` (all 27 components:
   text, images, QR codes, barcodes, tables, and 12+ chart types), generated
   from the same registry the renderer validates against, so it never drifts.
 - **Design:** `create_design`, `create_design_from_template`, `update_design`,
-  `preview_design`.
-- **Render:** `export_design` (one image) and `get_render_url` (a permanent URL
-  that re-renders per request with field overrides, for bulk).
+  `duplicate_design`, `preview_design`, plus `create_design_variation` to add
+  another size (it reflows the master's layout onto the new canvas).
+- **Render:** `export_design` (one image), `get_render_url` (a permanent URL
+  that re-renders per request with field overrides), `get_stored_image_url`
+  (stores the render, returns a hosted or expiring URL) and `bulk_export` (up
+  to 25 renders in one call — several sizes, several data variants, several
+  designs, or the ordered slides of a carousel).
+- **Publish:** every edit publishes a numbered version you can name, list,
+  read back and roll back (`publish_design`, `list_design_versions`,
+  `get_design_version`, `rollback_design`). `create_share_link` gives the
+  design a public page anyone with the URL can open, and
+  `create_template_from_design` makes it reusable across the workspace. Both
+  serve a pinned version, so `update_share_link` / `sync_template` /
+  `set_live_version` control exactly what the public sees.
+- **Gallery:** ask an admin to list a template publicly with
+  `submit_template_for_review` and follow it with `list_template_reviews`.
+  Approving is an admin action in the imejis dashboard — there is no tool for
+  it, so an agent can ask but never publish to the gallery itself.
 - **Assets & account:** manage files, fonts, templates, API keys, and read plan,
   credits, and quota.
 
+Anywhere a tool takes a design id, both ids work: the one a list returns or the
+short code from a render URL.
+
 It also ships ready-made **prompts**: `create_social_post`, `make_og_image`,
-`edit_design`, and `turn_design_into_api`.
+`edit_design`, `turn_design_into_api` and `export_design_image`.
 
 ## Try these
 
